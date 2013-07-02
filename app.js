@@ -1,44 +1,26 @@
-var Steam = exports = require('steam')
-  , winston = require('winston')
+var Steam = exports.steam = require('steam')
   , fs = require('fs')
-  , servers = require('./servers.js')
+  , handler = require('./handler.js')
   , config = require('./config.json')
-  , bot = new Steam.SteamClient();
+  , log = require('./logger.js').log;
+
+// Check for servers file
+if (fs.existsSync('servers.json')) {
+  Steam.servers = JSON.parse(fs.readFileSync('servers.json'));
+}
 
 var username = config.username
-  , password = config.password;
+  , password = config.password
+  , bot = exports.bot = new Steam.SteamClient();
 
 var steamGuard = require('fs').existsSync(config.username + '.hash') ? require('fs').readFileSync(config.username + '.hash') : '';
 
-var log = exports = new (winston.Logger)({
-  transports: [
-    new (winston.transports.Console)({ timestamp: true, colorize: true }),
-    new (winston.transports.File)({ filename: config.username + '.log' })
-  ]
-});
-
 bot.logOn(username, password, steamGuard);
 
-bot.on('loggedOn', function() {
-  log.info('Bot Logged in!')
-  bot.setPersonaState(Steam.EPersonaState.Online);
+bot.on('loggedOn', handler.loggedOn);
 
-  if (config.botname) {
-    log.info('Changing botname to: ' + config.botname);
-    bot.setPersonaName(config.botname);
-  }
-});
+bot.on('error', handler.error);
 
-bot.on('error', function(e) {
-  console.log(e);
-});
+bot.on('sentry', handler.sentry);
 
-bot.on('sentry', function(hash) {
-  fs.writeFile(config.username + '.hash', hash, function(err) {
-    log.warn('Sentry saved!');
-  });
-});
-
-bot.on('servers', function(servers) {
-  fs.writeFile('servers.json', JSON.stringify(servers));
-});
+bot.on('servers', handler.servers);
