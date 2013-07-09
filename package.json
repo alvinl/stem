@@ -1,7 +1,8 @@
 {
   "name": "Stem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
-    "steam": "~0.5.6"
+    "steam": "~0.5.6",
+    "winston": "~0.7.2"
   }
 }
