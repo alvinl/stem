@@ -3,5 +3,11 @@
   "username": "",
   "password": "",
   "idle": true,
-  "idleGames": [440]
+  "idleGames": [440],
+  "debug": false,
+  "tradeWhitelist": {
+    "enabled": false,
+    "whitelist": ["76561198042819371"],
+    "denyMessage": "nah brah"
+  }
 }

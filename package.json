@@ -1,8 +1,9 @@
 {
-  "name": "Stem",
-  "version": "0.2.0",
+  "name": "stem",
+  "version": "0.3.0",
   "dependencies": {
     "steam": "~0.5.6",
-    "winston": "~0.7.2"
+    "winston": "~0.7.2",
+    "steam-trade": "git://github.com/seishun/node-steam-trade.git"
   }
 }
