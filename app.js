@@ -1,9 +1,9 @@
 var Steam = exports.steam = require('steam')
   , SteamTrade = exports.SteamTrade = require('steam-trade')
   , fs = require('fs')
-  , handler = require('./handler.js')
+  , handler = require('./lib/handler.js')
   , config = require('./config.json')
-  , log = require('./logger.js').log;
+  , log = require('./lib/logger.js').log;
 
 // Check for servers file
 if (fs.existsSync('servers.json')) {
