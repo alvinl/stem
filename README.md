@@ -2,7 +2,7 @@ Stem
 ====
 [![Dependency Status](https://david-dm.org/Alvinlz/stem.png)](https://david-dm.org/Alvinlz/stem)   
 A simple Steam bot based on [node-steam](https://github.com/seishun/node-steam) that can run on Windows, Mac, and Linux. The bot is still in it's early stages but is stable enough to perform basic actions.
-![Stem Screenshot](https://photos-5.dropbox.com/t/0/AAAsf5Xx8LLQFj7hrT9hM170adXd9ZmiiD2T7TG3MtyF2Q/12/7985699/png/1024x768/3/1374004800/0/2/Screenshot%202013-07-16%2014.36.03.png/1_kTWMSJ6EFlRkUfrfqp2GCPe2qUQxJEQgVIuGeN6UI)
+![Stem Screenshot](https://photos-3.dropbox.com/t/0/AACunSjq-iixeELywziCBy-gpq-lJx7HckZhXiUsmdnj5w/12/7985699/png/2048x1536/3/1374004800/0/2/Screenshot%202013-07-16%2014.56.03.png/WS3Na_NIDcM-6412v0OCEVRVpg6a1m_x9PNZqxO0cyc)
 ## Features
 As of [v0.3.0](https://github.com/Alvinlz/stem/releases/tag/v0.3.0) the bot is capable of the following
 - Game idling (can idle multiple games at once)
