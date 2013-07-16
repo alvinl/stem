@@ -22,8 +22,9 @@ exports.sentry = function(hash){
 
 // Error event
 exports.error = function(e){
-  log.error(e);
+  // log.error(e);
   if (e.eresult === 65) {
+    app.bot.logOn(config.username, config.password);
     log.warn('Enter Steamcode below');
     process.stdin.resume();
     process.stdin.setEncoding('utf8');
@@ -37,6 +38,15 @@ exports.error = function(e){
 };
 
 
+// Message event
+exports.message = function(steamID, message, type){
+  var client = steamID;
+  if (message) {
+    log.warn(client + ': ' + message);
+  }
+}
+
+
 // Logged In event
 exports.loggedOn = function(){
   log.info('Bot Logged in!');
@@ -47,4 +57,10 @@ exports.loggedOn = function(){
     log.info('Changing botname to: ' + config.botname);
     app.bot.setPersonaName(config.botname);
   }
+
+  if (config.idle) {
+    log.info('Idling: ' + config.idleGames);
+    app.bot.gamesPlayed(config.idleGames);
+  }
+
 };

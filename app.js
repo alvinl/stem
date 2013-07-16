@@ -21,6 +21,8 @@ bot.on('loggedOn', handler.loggedOn);
 
 bot.on('error', handler.error);
 
+bot.on('message', handler.message);
+
 bot.on('sentry', handler.sentry);
 
 bot.on('servers', handler.servers);

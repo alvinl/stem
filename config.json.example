@@ -1,5 +1,7 @@
 {
-  "botname": "this can be left blank",
-  "username": "steam username",
-  "password": "steam password"
+  "botname": "",
+  "username": "",
+  "password": "",
+  "idle": true,
+  "idleGames": [440]
 }
