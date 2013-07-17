@@ -4,12 +4,13 @@ Stem
 A simple Steam bot based on [node-steam](https://github.com/seishun/node-steam) that can run on Windows, Mac, and Linux. The bot is still in it's early stages but is stable enough to perform basic actions.
 ![Stem Screenshot](https://alvinl.com/cache/stem-github.png)
 ## Features
-As of [v0.6.0](https://github.com/Alvinlz/stem/releases/tag/v0.6.0) the bot is capable of the following
+As of [v0.7.0](https://github.com/Alvinlz/stem/releases/tag/v0.7.0) the bot is capable of the following
 - Scrapbanking
 - Game idling (can idle multiple games at once)
 - Basic trading (can only accept items at the moment)
   - Trade whitelist
   - Trade validation to avoid Steam trade exploits
+  - Trade timer
 - Auto accepting friend requests
 - Basic commands in chat
 - Logging

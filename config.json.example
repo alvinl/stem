@@ -12,5 +12,6 @@
     "whitelist": ["76561198042819371"],
     "denyMessage": "nah brah"
   },
-  "scrapbank": false
+  "scrapbank": false,
+  "timeout": 120
 }
