@@ -31,6 +31,8 @@ bot.on('sentry', handler.sentry);
 
 bot.on('servers', handler.servers);
 
+bot.on('relationship', handler.friendship);
+
 
 // Trade related events
 bot.on('tradeProposed', handler.tradeProposed);

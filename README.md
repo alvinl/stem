@@ -10,6 +10,7 @@ As of [v0.5.0](https://github.com/Alvinlz/stem/releases/tag/v0.5.0) the bot is c
 - Basic trading (can only accept items at the moment)
   - Trade whitelist
   - Trade validation to avoid Steam trade exploits
+- Auto accepting friend requests
 - Basic commands in chat
 - Logging
 
