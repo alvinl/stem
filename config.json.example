@@ -2,6 +2,8 @@
   "botname": "",
   "username": "",
   "password": "",
+  "admins": ["76561198042819371", "203819413413"],
+  "autoAccept": true,
   "idle": true,
   "idleGames": [440],
   "debug": false,
@@ -9,5 +11,6 @@
     "enabled": false,
     "whitelist": ["76561198042819371"],
     "denyMessage": "nah brah"
-  }
+  },
+  "scrapbank": false
 }
