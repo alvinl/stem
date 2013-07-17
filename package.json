@@ -1,6 +1,6 @@
 {
   "name": "stem",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "dependencies": {
     "steam": "~0.5.6",
     "winston": "~0.7.2",
