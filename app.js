@@ -1,22 +1,51 @@
-var Steam = exports.steam = require('steam')
+
+// Import modules
+var Steam = exports.Steam = require('steam')
   , SteamTrade = exports.SteamTrade = require('steam-trade')
-  , fs = require('fs')
-  , handler = require('./lib/handler.js')
   , config = require('./config.json')
-  , log = require('./lib/logger.js').log;
+  , log = require('./lib/logger.js')
+  , fs = require('fs');
+
+// Set and export bot configs
+var username = config.username
+  , botPassword = config.password
+  , sentry = '.' + config.username
+  , bot = exports.bot = new Steam.SteamClient()
+  , botTrade = exports.botTrade = new SteamTrade();
+
+
+// Set global variables
+var inventory = exports.inventory
+  , scrap = exports.scrap
+  , weapons = exports.weapons
+  , addedScrap = exports.addedScrap
+  , client = exports.client
+  , clientInv = exports.clientInv = []
+  , tradeReady = exports.tradeReady = false
+  , tradeTimer = exports.tradeTimer;
+
 
 // Check for servers file
 if (fs.existsSync('.servers.json')) {
   Steam.servers = JSON.parse(fs.readFileSync('.servers.json'));
 }
 
-var username = config.username
-  , botPassword = config.password
-  , bot = exports.bot = new Steam.SteamClient()
-  , steamTrade = exports.steamTrade = new SteamTrade()
-  , sentry = '.' + config.username;
+// Import handlers
+var tradeProposedHandler = require('./lib/handlers/tradeProposed')
+  , offerChangedHandler = require('./lib/handlers/offerChanged')
+  , sessionStartHandler = require('./lib/handlers/sessionStart')
+  , webSessionHandler = require('./lib/handlers/webSession')
+  , loggedOnHandler = require('./lib/handlers/loggedOn')
+  , serversHandler = require('./lib/handlers/servers')
+  , messageHandler = require('./lib/handlers/message')
+  , sentryHandler = require('./lib/handlers/sentry')
+  , friendHandler = require('./lib/handlers/friend')
+  , errorHandler = require('./lib/handlers/error')
+  , readyHandler = require('./lib/handlers/ready')
+  , endHandler = require('./lib/handlers/end');
 
 
+// Attempt to login
 if (require('fs').existsSync(sentry)) {
   bot.logOn({
     accountName: username,
@@ -30,34 +59,61 @@ if (require('fs').existsSync(sentry)) {
   });
 }
 
-bot.on('loggedOn', handler.loggedOn);
 
-bot.on('error', handler.error);
+// Bot events
+bot.on('loggedOn', loggedOnHandler);
 
-bot.on('message', handler.message);
+bot.on('error', errorHandler);
 
-bot.on('webSessionID', handler.webSession);
+bot.on('message', messageHandler);
 
-bot.on('sentry', handler.sentry);
+bot.on('webSessionID', webSessionHandler);
 
-bot.on('servers', handler.servers);
+bot.on('sentry', sentryHandler);
 
-bot.on('friend', handler.friend);
+bot.on('servers', serversHandler);
+
+bot.on('friend', friendHandler);
 
 
 // Trade related events
-bot.on('tradeProposed', handler.tradeProposed);
+bot.on('tradeProposed', tradeProposedHandler);
 
-bot.on('sessionStart', handler.sessionStart);
+bot.on('sessionStart', sessionStartHandler);
 
-steamTrade.on('offerChanged', handler.offerChanged);
+botTrade.on('offerChanged', offerChangedHandler);
 
-steamTrade.on('ready', handler.ready);
+botTrade.on('ready', readyHandler);
 
-steamTrade.on('end', handler.end);
+botTrade.on('end', endHandler);
 
 
 // Debug
 if (config.debug) {
   bot.on('debug', log.warn);
 }
+
+
+/*
+ * General functions
+ */
+
+
+// Validate arrays
+exports.Validate = function Validate(arr1, arr2){
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (var i = arr1.length; i--;) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+
+// Send message
+exports.Message = function Message(to, message){
+  bot.sendMessage(to, message, Steam.EChatEntryType.ChatMsg);
+};
