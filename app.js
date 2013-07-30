@@ -30,6 +30,7 @@ if (fs.existsSync('.servers.json')) {
   Steam.servers = JSON.parse(fs.readFileSync('.servers.json'));
 }
 
+
 // Import handlers
 var tradeProposedHandler = require('./lib/handlers/tradeProposed')
   , offerChangedHandler = require('./lib/handlers/offerChanged')
@@ -38,6 +39,7 @@ var tradeProposedHandler = require('./lib/handlers/tradeProposed')
   , loggedOnHandler = require('./lib/handlers/loggedOn')
   , serversHandler = require('./lib/handlers/servers')
   , messageHandler = require('./lib/handlers/message')
+  , chatMsgHandler = require('./lib/handlers/chatMsg')
   , sentryHandler = require('./lib/handlers/sentry')
   , friendHandler = require('./lib/handlers/friend')
   , errorHandler = require('./lib/handlers/error')
@@ -82,6 +84,8 @@ bot.on('tradeProposed', tradeProposedHandler);
 bot.on('sessionStart', sessionStartHandler);
 
 botTrade.on('offerChanged', offerChangedHandler);
+
+botTrade.on('chatMsg', chatMsgHandler);
 
 botTrade.on('ready', readyHandler);
 

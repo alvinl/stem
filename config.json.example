@@ -13,5 +13,9 @@
     "denyMessage": "nah brah"
   },
   "scrapbank": false,
-  "timeout": 120
+  "timeout": 120,
+  "trade": {
+    "welcomeMsg": "Hello there! I currently have %scrap scrap and %reclaimed reclaimed.",
+    "endMsg": "Thanks for trading with us!"
+  }
 }
