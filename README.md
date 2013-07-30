@@ -13,6 +13,7 @@ As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11.0) the bot is c
   - Trade validation to avoid Steam trade exploits
   - Trade timer
   - Trade commands
+  - Custom messages
 - Auto accepting friend requests
 - Basic commands in chat
 - Logging
