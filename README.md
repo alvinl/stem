@@ -18,17 +18,10 @@ As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11) the bot is cap
 - Basic commands in chat
 - Logging
 
-## Installation (Mac / Linux)
-- Download and install [node.js](http://nodejs.org/)
-  - If you are running linux you can follow [this guide](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) as well
-- Run `git clone https://github.com/Alvinlz/stem.git`
-  - Alternatively you can just download the zip or tar from github and unzip
-- Go into the stem folder
-- Run `npm install`
-  - If you are on a mac you will need Xcode and the Command Line tools from Xcode 
-- Rename the config.example.json file to config.json
-- Edit config.json to your needs (only username and password is required)
-- Run `node app.js` to start the bot
+## Installing
+- [Installing on Mac](https://github.com/Alvinlz/stem/wiki/Installing-on-Mac)
+- Installing on Windows (coming soon)
+- Installing on Linux (coming soon)
 
 ## Configuring
 To configure the bot you can just edit config.json. This [page](https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) gives an explanation of what each setting does.
