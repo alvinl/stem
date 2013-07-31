@@ -22,7 +22,8 @@ var inventory = exports.inventory
   , client = exports.client
   , clientInv = exports.clientInv = []
   , tradeReady = exports.tradeReady = false
-  , tradeTimer = exports.tradeTimer;
+  , tradeTimer = exports.tradeTimer
+  , webReady = exports.webReady =false;
 
 
 // Check for servers file
