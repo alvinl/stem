@@ -30,5 +30,8 @@ As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11) the bot is cap
 - Edit config.json to your needs (only username and password is required)
 - Run `node app.js` to start the bot
 
+## Configuring
+To configure the bot you can just edit config.json. This [page](https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) gives an explanation of what each setting does.
+
 ## Changelog
 You can find the changelog [here](https://github.com/Alvinlz/stem/releases)
