@@ -24,7 +24,7 @@ As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11) the bot is cap
 - [Installing on Linux](https://github.com/Alvinlz/stem/wiki/Installing-on-Linux)
 
 ## Configuring
-Refer to this [wiki page]((https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) for info on configuring the bot.
+Refer to this [wiki page](https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) for info on configuring the bot.
 
 ## Changelog
 You can find the changelog [here](https://github.com/Alvinlz/stem/releases)
