@@ -21,10 +21,10 @@ As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11) the bot is cap
 ## Installing
 - [Installing on Mac](https://github.com/Alvinlz/stem/wiki/Installing-on-Mac)
 - Installing on Windows (coming soon)
-- Installing on Linux (coming soon)
+- [Installing on Linux](https://github.com/Alvinlz/stem/wiki/Installing-on-Linux)
 
 ## Configuring
-To configure the bot you can just edit config.json. This [page](https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) gives an explanation of what each setting does.
+Refer to this [wiki page]((https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) for info on configuring the bot.
 
 ## Changelog
 You can find the changelog [here](https://github.com/Alvinlz/stem/releases)
