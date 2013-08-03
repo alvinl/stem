@@ -23,6 +23,9 @@ As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11) the bot is cap
 - Installing on Windows (coming soon)
 - [Installing on Linux](https://github.com/Alvinlz/stem/wiki/Installing-on-Linux)
 
+## Commands
+Visit this [wiki page](https://github.com/Alvinlz/stem/wiki/Commands) to see all of the bot's commands or message the bot "help".
+
 ## Configuring
 Refer to this [wiki page](https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) for info on configuring the bot.
 
