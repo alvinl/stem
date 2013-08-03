@@ -2,9 +2,23 @@
 // Import modules
 var Steam = exports.Steam = require('steam')
   , SteamTrade = exports.SteamTrade = require('steam-trade')
-  , config = require('./config.json')
-  , log = require('./lib/logger.js')
   , fs = require('fs');
+
+// Check that config.json exists
+if (fs.existsSync('./config.json')) {
+  var config = require('./config.json');
+} else {
+  console.log('Could not find config.json! Please make a config.json file.');
+  process.kill();
+}
+
+var log = require('./lib/logger.js');
+
+// Check that steam username and steam password is actually set.
+if (!config.username || !config.password) {
+  log.error('Check that your steam username or steam password is set.');
+  process.kill();
+}
 
 // Set and export bot configs
 var username = config.username
@@ -37,6 +51,7 @@ var tradeProposedHandler = require('./lib/handlers/tradeProposed')
   , offerChangedHandler = require('./lib/handlers/offerChanged')
   , sessionStartHandler = require('./lib/handlers/sessionStart')
   , webSessionHandler = require('./lib/handlers/webSession')
+  , errorTradeHandler = require('./lib/handlers/errorTrade')
   , loggedOnHandler = require('./lib/handlers/loggedOn')
   , serversHandler = require('./lib/handlers/servers')
   , messageHandler = require('./lib/handlers/message')
@@ -91,6 +106,8 @@ botTrade.on('chatMsg', chatMsgHandler);
 botTrade.on('ready', readyHandler);
 
 botTrade.on('end', endHandler);
+
+botTrade.on('error', errorTradeHandler);
 
 
 // Debug
