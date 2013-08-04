@@ -29,5 +29,8 @@ Visit this [wiki page](https://github.com/Alvinlz/stem/wiki/Commands) to see all
 ## Configuring
 Refer to this [wiki page](https://github.com/Alvinlz/stem/wiki/Configuring-the-bot) for info on configuring the bot.
 
+## Guides
+![Idling for Steam Trading Cards](https://github.com/Alvinlz/stem/wiki/Idling-for-Steam-Trading-Cards)
+
 ## Changelog
 You can find the changelog [here](https://github.com/Alvinlz/stem/releases)
