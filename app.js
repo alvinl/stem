@@ -5,7 +5,7 @@ var Steam = exports.Steam = require('steam')
   , fs = require('fs');
 
 // Check that config.json exists
-if (fs.existsSync('./config.json')) {
+if (fs.existsSync(__dirname + '/config.json')) {
   var config = require('./config.json');
 } else {
   console.log('Could not find config.json! Please make a config.json file.');
@@ -23,7 +23,7 @@ if (!config.username || !config.password) {
 // Set and export bot configs
 var username = config.username
   , botPassword = config.password
-  , sentry = '.' + config.username
+  , sentry = __dirname + '/.' + config.username
   , bot = exports.bot = new Steam.SteamClient()
   , botTrade = exports.botTrade = new SteamTrade();
 
