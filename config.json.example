@@ -17,5 +17,9 @@
   "trade": {
     "welcomeMsg": "Hello there! I currently have %scrap scrap and %reclaimed reclaimed.",
     "endMsg": "Thanks for trading with us!"
+  },
+  "messages": {
+    "hi": "hello!",
+    "i love you": "I love you too :)"
   }
 }
