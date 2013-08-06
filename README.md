@@ -7,6 +7,7 @@ A simple Steam bot based on [node-steam](https://github.com/seishun/node-steam) 
 As of [v0.11](https://github.com/Alvinlz/stem/releases/tag/v0.11) the bot is capable of the following
 - Scrapbanking
 - Game idling (can idle multiple games at once)
+- Custom message replies
 - Basic trading
   - Scrapbanking
   - Trade whitelist
