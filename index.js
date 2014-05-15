@@ -1,5 +1,6 @@
 
-var Stem = require('./lib/');
-var config = require('./config');
+var config = require('./config'),
+    Stem   = require('./lib/'),
+    bot    = new Stem();
 
-Stem.init(config);
+bot.init(config);

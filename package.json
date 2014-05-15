@@ -1,11 +1,11 @@
 {
   "name": "stem",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "dependencies": {
-    "steam": "0.6.5",
+    "moment": "2.6.0",
+    "steam": "0.6.6",
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
-    "moment": "~2.5.0",
-    "winston": "~0.7.2",
-    "steam-tradeoffers": "git://github.com/Alvinlz/node-steam-tradeoffers.git"
+    "steam-tradeoffers": "git://github.com/Alvinlz/node-steam-tradeoffers.git",
+    "winston": "0.7.3"
   }
 }
