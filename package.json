@@ -1,6 +1,13 @@
 {
   "name": "stem",
   "version": "0.25.0",
+  "author": "Alvin Lazaro <me@alvinl.com> (https://alvinl.com/)",
+  "main": "./lib/index",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alvinlz/stem-admin-commands.git"
+  },
   "dependencies": {
     "moment": "2.6.0",
     "steam": "0.6.6",
