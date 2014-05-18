@@ -10,7 +10,7 @@ As of [v0.25](https://github.com/Alvinlz/stem/releases/tag/v0.25) Stem is now pl
 A list of plugins can be found [here](https://github.com/Alvinlz/stem/wiki/Plugins). Feel free to edit the wiki page to include plugins you've made.
 
 ### Installing plugins
-Instructions on how to install plugins for Stem can be found [here](#).
+Instructions on how to install plugins for Stem can be found [here](https://github.com/Alvinlz/stem/wiki/Installing-plugins).
 
 ### Creating plugins
 Instructions on how to create plugins can be found in the wiki [here](#).
