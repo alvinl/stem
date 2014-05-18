@@ -7,7 +7,7 @@ A simple Steam bot based on [node-steam](https://github.com/seishun/node-steam) 
 As of [v0.25](https://github.com/Alvinlz/stem/releases/tag/v0.25) Stem is now plugin based. All previous features are now in their own seperate plugins.
 
 ### Plugin list
-A list of plugins can be found [here](#). Feel free to edit the wiki page to include plugins you've made.
+A list of plugins can be found [here](https://github.com/Alvinlz/stem/wiki/Plugins). Feel free to edit the wiki page to include plugins you've made.
 
 ### Installing plugins
 Instructions on how to install plugins for Stem can be found [here](#).
