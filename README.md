@@ -2,7 +2,7 @@ Stem
 ====
 [![Dependency Status](https://david-dm.org/Alvinlz/stem.svg)](https://david-dm.org/Alvinlz/stem)  
 A simple Steam bot based on [node-steam](https://github.com/seishun/node-steam) that can run on Windows, Mac and Linux. The bot is still in its early stages but is stable enough to perform basic actions.
-![Stem Screenshot](https://alvinl.com/cache/stem-github.png)
+![Stem Screenshot](https://alvinl.com/cache/stem-github.png?v=0.25)
 ## Plugins
 As of [v0.25](https://github.com/Alvinlz/stem/releases/tag/v0.25) Stem is now plugin based. All previous features are now in their own seperate plugins.
 
