@@ -13,7 +13,7 @@ A list of plugins can be found [here](https://github.com/Alvinlz/stem/wiki/Plugi
 Instructions on how to install plugins for Stem can be found [here](https://github.com/Alvinlz/stem/wiki/Installing-plugins).
 
 ### Creating plugins
-Instructions on how to create plugins can be found in the wiki [here](#).
+Instructions on how to create plugins can be found in the wiki [here](https://github.com/Alvinlz/stem/wiki/Creating-plugins).
 
 ## Installing
 - [Installing on Mac](https://github.com/Alvinlz/stem/wiki/Installing-on-Mac)
