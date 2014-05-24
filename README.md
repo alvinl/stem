@@ -28,3 +28,6 @@ Refer to this [wiki page](https://github.com/Alvinlz/stem/wiki/Configuring-the-b
 
 ## Changelog
 You can find the changelog [here](https://github.com/Alvinlz/stem/releases)
+
+## Contact
+If you need help or have any questions feel free to add me via [Steam](http://steamcommunity.com/id/alvinlz) or my Github email.
