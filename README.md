@@ -27,4 +27,4 @@ Refer to this [wiki page](https://github.com/alvinl/stem/wiki/Configuring-the-bo
 You can find the changelog [here](https://github.com/alvinl/stem/releases)
 
 ## Contact
-If you need help or have any questions feel free to add me via [Steam](http://steamcommunity.com/id/) or my Github email.
+If you need help or have any questions feel free to add me via [Steam](http://steamcommunity.com/id/Alvinlz) or my Github email.
