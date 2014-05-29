@@ -1,9 +1,12 @@
 {
   "name": "stem",
-  "version": "0.28.0",
+  "version": "0.29.0",
   "author": "Alvin Lazaro <me@alvinl.com> (https://alvinl.com/)",
   "main": "./lib/index",
   "license": "MIT",
+  "scripts": {
+    "test": "NODE_ENV=test node_modules/.bin/mocha -R spec"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/alvinl/stem.git"
@@ -14,5 +17,9 @@
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
     "steam-tradeoffers": "git://github.com/Alex7Kom/node-steam-tradeoffers.git",
     "winston": "0.7.3"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.0",
+    "should": "^3.3.2"
   }
 }
