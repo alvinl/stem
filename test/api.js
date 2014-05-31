@@ -35,7 +35,7 @@ describe('API', function () {
 
   });
 
-  it('api.addCommand should fail to create a regular command when passed an invalid parameter', function (done) {
+  it('api.addCommand should fail to create a command when passed an invalid parameter', function (done) {
     
     var Stem = require('../lib'),
         bot  = new Stem();
@@ -73,12 +73,12 @@ describe('API', function () {
 
   });
 
-  it('api.addAdminCommand should create a admin command', function (done) {
+  it('api.addCommand(.., .., true) should create a admin command', function (done) {
     
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.api.addAdminCommand('admin command', function () {});
+    bot.api.addCommand('admin command', function () {}, 1);
 
     bot.commands.admin.should.have.property('admin command');
 
@@ -86,34 +86,16 @@ describe('API', function () {
 
   });
 
-  it('api.addAdminCommand should fail to create a admin command when passed an invalid parameter', function (done) {
+  it('api.addCommand(.., .., true) should fail to create a admin command when the command already exists', function (done) {
     
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    try {
-
-      bot.api.addAdminCommand('admin command', 'invalid param');
-
-    } catch (e) {
-
-      should.exist(e);
-      return done();
-
-    }
-
-  });
-
-  it('api.addAdminCommand should fail to create a admin command when the command already exists', function (done) {
-    
-    var Stem = require('../lib'),
-        bot  = new Stem();
-
-    bot.api.addCommand('admin command', function () { });
+    bot.api.addCommand('admin command', function () { }, 1);
 
     try {
 
-      bot.api.addCommand('admin command', function () { });
+      bot.api.addCommand('admin command', function () { }, 1);
 
     } catch (e) {
 
@@ -132,7 +114,7 @@ describe('API', function () {
     // Create admin
     bot.config.admins = ['76561198042819371'];
 
-    bot.api.isAdmin('76561198042819371').should.eql(-1);   
+    bot.api.isAdmin('76561198042819371').should.be.true;   
 
     return done();
 
@@ -146,7 +128,7 @@ describe('API', function () {
     // Create admin
     bot.config.admins = ['76561198042819371'];
 
-    bot.api.isAdmin('76561198042819372').should.eql(0);   
+    bot.api.isAdmin('76561198042819372').should.be.false;   
 
     return done();
 
