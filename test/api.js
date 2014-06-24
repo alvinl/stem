@@ -9,7 +9,7 @@ describe('API', function () {
         bot  = new Stem();
 
     // Attach a fake handler
-    bot.api.addHandler(bot.bot, 'friendMsg', function () {
+    bot.api.addHandler('bot', 'friendMsg', function () {
       
       // Verify that `this` is Stem
       this.should.have.property('config');
