@@ -1,6 +1,6 @@
 {
   "name": "stem",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "author": "Alvin Lazaro <me@alvinl.com> (https://alvinl.com/)",
   "main": "./lib/index",
   "license": "MIT",
@@ -12,12 +12,12 @@
     "url": "https://github.com/alvinl/stem.git"
   },
   "dependencies": {
-    "moment": "2.6.0",
+    "moment": "^2.7.0",
     "request": "^2.36.0",
     "steam": "0.6.6",
     "steam-trade": "git://github.com/seishun/node-steam-trade.git",
     "steam-tradeoffers": "git://github.com/Alex7Kom/node-steam-tradeoffers.git",
-    "winston": "0.7.3"
+    "winston": "^0.7.3"
   },
   "devDependencies": {
     "mocha": "^1.20.0",
