@@ -163,4 +163,57 @@ describe('API', function () {
 
   });
 
+  it('api.validateTrade should return false if no trade session data is available', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.api.validateTrade().should.be.false;
+
+    return done();
+
+  });
+
+  it('api.validateTrade should return false if inventory lengths do not match', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.tradeSession.eventItems = [1, 2, 3];
+    bot.botTrade.themAssets = [1, 2];
+
+    bot.api.validateTrade().should.be.false;
+
+    return done();
+
+  });
+
+  it('api.validateTrade should return false if inventories do not match', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.tradeSession.eventItems = [1, 2, 3];
+    bot.botTrade.themAssets = [1, 2, 4];
+
+    bot.api.validateTrade().should.be.false;
+
+    return done();
+
+  });
+
+  it('api.validateTrade should return true if inventories match', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.tradeSession.eventItems = [1, 2, 3];
+    bot.botTrade.themAssets = [1, 2, 3];
+
+    bot.api.validateTrade().should.be.true;
+
+    return done();
+
+  });
+
 });
