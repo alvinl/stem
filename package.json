@@ -1,6 +1,6 @@
 {
   "name": "stem",
-  "version": "0.36.0",
+  "version": "0.36.1",
   "author": "Alvin Lazaro <me@alvinl.com> (https://alvinl.com/)",
   "main": "./lib/index",
   "license": "MIT",

@@ -106,6 +106,90 @@ describe('API', function () {
 
   });
 
+  it('api.addTradeCommand should create a regular trade command', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.api.addTradeCommand('normal command', function () {});
+
+    bot.tradeCommands.normal.should.have.property('normal command');
+
+    return done();
+
+  });
+
+  it('api.addTradeCommand should fail to create a trade command when passed an invalid parameter', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    try {
+
+      bot.api.addTradeCommand('normal command', 'invalid param');
+
+    } catch (e) {
+
+      should.exist(e);
+      return done();
+
+    }
+
+  });
+
+  it('api.addTradeCommand should fail to create a regular trade command when the command already exists', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.api.addTradeCommand('normal command', function () { });
+
+    try {
+
+      bot.api.addTradeCommand('normal command', function () { });
+
+    } catch (e) {
+
+      should.exist(e);
+      return done();
+
+    }
+
+  });
+
+  it('api.addTradeCommand(.., .., true) should create a trade admin command', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.api.addTradeCommand('admin command', function () {}, 1);
+
+    bot.tradeCommands.admin.should.have.property('admin command');
+
+    return done();
+
+  });
+
+  it('api.addTradeCommand(.., .., true) should fail to create a trade admin command when the command already exists', function (done) {
+    
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.api.addTradeCommand('admin command', function () { }, 1);
+
+    try {
+
+      bot.api.addTradeCommand('admin command', function () { }, 1);
+
+    } catch (e) {
+
+      should.exist(e);
+      return done();
+
+    }
+
+  });
+
   it('api.isAdmin should return true if a given steamID is an admin', function (done) {
     
     var Stem = require('../lib'),
@@ -179,7 +263,7 @@ describe('API', function () {
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.tradeSession.eventItems = [1, 2, 3];
+    bot.trade.eventItems = [1, 2, 3];
     bot.botTrade.themAssets = [1, 2];
 
     bot.api.validateTrade().should.be.false;
@@ -193,7 +277,7 @@ describe('API', function () {
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.tradeSession.eventItems = [1, 2, 3];
+    bot.trade.eventItems = [1, 2, 3];
     bot.botTrade.themAssets = [1, 2, 4];
 
     bot.api.validateTrade().should.be.false;
@@ -207,7 +291,7 @@ describe('API', function () {
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.tradeSession.eventItems = [1, 2, 3];
+    bot.trade.eventItems = [1, 2, 3];
     bot.botTrade.themAssets = [1, 2, 3];
 
     bot.api.validateTrade().should.be.true;
