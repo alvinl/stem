@@ -2,24 +2,5 @@
   "botname": "",
   "username": "",
   "password": "",
-  "admins": ["76561198042819371", "203819413413"],
-  "autoAccept": true,
-  "idle": true,
-  "idleGames": [440],
-  "debug": false,
-  "tradeWhitelist": {
-    "enabled": false,
-    "whitelist": ["76561198042819371"],
-    "denyMessage": "nah brah"
-  },
-  "scrapbank": false,
-  "timeout": 120,
-  "trade": {
-    "welcomeMsg": "Hello there! I currently have %scrap scrap and %reclaimed reclaimed.",
-    "endMsg": "Thanks for trading with us!"
-  },
-  "messages": {
-    "hi": "hello!",
-    "i love you": "I love you too :)"
-  }
+  "admins": ["76561198042819371", "203819413413"]
 }
