@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var config     = process.argv[2],
+    Stem       = require('../lib'),
+    configPath = process.cwd() + '/' + config;
+
+if (!config) {
+
+  console.error('Config path required');
+  return process.exit(1);
+
+}
+
+var bot       = new Stem(),
+    botConfig = require(configPath);
+
+bot.init(botConfig);
