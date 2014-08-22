@@ -2,5 +2,7 @@
   "botname": "",
   "username": "",
   "password": "",
-  "admins": ["76561198042819371", "203819413413"]
+  "admins": ["76561198042819371", "203819413413"],
+  "plugins": [],
+  "disabledPlugins": []
 }
