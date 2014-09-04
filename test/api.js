@@ -1,16 +1,18 @@
 
+/* global describe, it */
+
 var should = require('should');
 
 describe('API', function () {
 
   it('api.addHandler should attach an event handler to a event and bind `Stem`', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
     // Attach a fake handler
     bot.api.addHandler('bot', 'friendMsg', function () {
-      
+
       // Verify that `this` is Stem
       this.should.have.property('config');
       return done();
@@ -21,9 +23,9 @@ describe('API', function () {
     bot.bot.emit('friendMsg');
 
   });
-  
+
   it('api.addCommand should create a regular command', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -36,7 +38,7 @@ describe('API', function () {
   });
 
   it('api.addCommand should fail to create a command when passed an invalid parameter', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -54,7 +56,7 @@ describe('API', function () {
   });
 
   it('api.addCommand should fail to create a regular command when the command already exists', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -74,7 +76,7 @@ describe('API', function () {
   });
 
   it('api.addCommand(.., .., true) should create a admin command', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -87,7 +89,7 @@ describe('API', function () {
   });
 
   it('api.addCommand(.., .., true) should fail to create a admin command when the command already exists', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -107,7 +109,7 @@ describe('API', function () {
   });
 
   it('api.addTradeCommand should create a regular trade command', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -120,7 +122,7 @@ describe('API', function () {
   });
 
   it('api.addTradeCommand should fail to create a trade command when passed an invalid parameter', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -138,7 +140,7 @@ describe('API', function () {
   });
 
   it('api.addTradeCommand should fail to create a regular trade command when the command already exists', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -158,7 +160,7 @@ describe('API', function () {
   });
 
   it('api.addTradeCommand(.., .., true) should create a trade admin command', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -171,7 +173,7 @@ describe('API', function () {
   });
 
   it('api.addTradeCommand(.., .., true) should fail to create a trade admin command when the command already exists', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -191,35 +193,35 @@ describe('API', function () {
   });
 
   it('api.isAdmin should return true if a given steamID is an admin', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
     // Create admin
     bot.config.admins = ['76561198042819371'];
 
-    bot.api.isAdmin('76561198042819371').should.be.true;   
+    bot.api.isAdmin('76561198042819371').should.be.true;
 
     return done();
 
   });
 
   it('api.isAdmin should return false if a given steamID is not an admin', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
     // Create admin
     bot.config.admins = ['76561198042819371'];
 
-    bot.api.isAdmin('76561198042819372').should.be.false;   
+    bot.api.isAdmin('76561198042819372').should.be.false;
 
     return done();
 
   });
 
   it('api.validateSteamID should return true if a given string is a valid steamID', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -230,7 +232,7 @@ describe('API', function () {
   });
 
   it('api.validateSteamID should return false if a given string is an invalid steamID', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -248,7 +250,7 @@ describe('API', function () {
   });
 
   it('api.validateTrade should return false if no trade session data is available', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -259,7 +261,7 @@ describe('API', function () {
   });
 
   it('api.validateTrade should return false if inventory lengths do not match', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -273,7 +275,7 @@ describe('API', function () {
   });
 
   it('api.validateTrade should return false if inventories do not match', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
@@ -287,7 +289,7 @@ describe('API', function () {
   });
 
   it('api.validateTrade should return true if inventories match', function (done) {
-    
+
     var Stem = require('../lib'),
         bot  = new Stem();
 
