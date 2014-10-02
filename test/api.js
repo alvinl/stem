@@ -24,168 +24,172 @@ describe('API', function () {
 
   });
 
-  it('api.addCommand should create a regular command', function (done) {
+  it('api.addCommand should create a admin command for all message types', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.api.addCommand('normal command', function () {});
+    bot.api.addCommand(/^help/i, function () {
 
-    bot.commands.normal.should.have.property('normal command');
+    }, { permission: 'admin' });
 
+    bot.api.addCommand(/^help/i, function () {
+
+    }, { permission: 'admin', eventType: 'group' });
+
+    bot.api.addCommand(/^help/i, function () {
+
+    }, { permission: 'admin', eventType: 'trade' });
+
+    var messageMatchedCommand = bot.api._matchCommand('help', 'message', true),
+        groupMatchedCommand   = bot.api._matchCommand('help', 'group', true),
+        tradeMatchedCommand   = bot.api._matchCommand('help', 'trade', true);
+
+    should.exist(messageMatchedCommand);
+    should.exist(groupMatchedCommand);
+    should.exist(tradeMatchedCommand);
     return done();
 
   });
 
-  it('api.addCommand should fail to create a command when passed an invalid parameter', function (done) {
+  it('api.addCommand should create a normal command for all message types', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    try {
+    bot.api.addCommand(/^help/i, function () {
 
-      bot.api.addCommand('normal command', 'invalid param');
+    });
 
-    } catch (e) {
+    bot.api.addCommand(/^help/i, function () {
 
-      should.exist(e);
-      return done();
+    }, { eventType: 'group' });
 
-    }
+    bot.api.addCommand(/^help/i, function () {
 
-  });
+    }, { eventType: 'trade' });
 
-  it('api.addCommand should fail to create a regular command when the command already exists', function (done) {
+    var messageMatchedCommand = bot.api._matchCommand('help', 'message'),
+        groupMatchedCommand   = bot.api._matchCommand('help', 'group'),
+        tradeMatchedCommand   = bot.api._matchCommand('help', 'trade');
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
-
-    bot.api.addCommand('normal command', function () { });
-
-    try {
-
-      bot.api.addCommand('normal command', function () { });
-
-    } catch (e) {
-
-      should.exist(e);
-      return done();
-
-    }
-
-  });
-
-  it('api.addCommand(.., .., true) should create a admin command', function (done) {
-
-    var Stem = require('../lib'),
-        bot  = new Stem();
-
-    bot.api.addCommand('admin command', function () {}, 1);
-
-    bot.commands.admin.should.have.property('admin command');
-
+    should.exist(messageMatchedCommand);
+    should.exist(groupMatchedCommand);
+    should.exist(tradeMatchedCommand);
     return done();
 
   });
 
-  it('api.addCommand(.., .., true) should fail to create a admin command when the command already exists', function (done) {
+  it('api.addCommand should fail to create a command for an invalid eventType', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.api.addCommand('admin command', function () { }, 1);
-
     try {
 
-      bot.api.addCommand('admin command', function () { }, 1);
+      bot.api.addCommand(/^help/i, function () {
 
-    } catch (e) {
+      }, { eventType: 'invalid' });
 
-      should.exist(e);
+    } catch (err) {
+
       return done();
 
     }
 
   });
 
-  it('api.addTradeCommand should create a regular trade command', function (done) {
-
-    var Stem = require('../lib'),
-        bot  = new Stem();
-
-    bot.api.addTradeCommand('normal command', function () {});
-
-    bot.tradeCommands.normal.should.have.property('normal command');
-
-    return done();
-
-  });
-
-  it('api.addTradeCommand should fail to create a trade command when passed an invalid parameter', function (done) {
+  it('api.addCommand should fail to create a command for an invalid permission group', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
     try {
 
-      bot.api.addTradeCommand('normal command', 'invalid param');
+      bot.api.addCommand(/^help/i, function () {
 
-    } catch (e) {
+      }, { permission: 'invalid' });
 
-      should.exist(e);
+    } catch (err) {
+
       return done();
 
     }
 
   });
 
-  it('api.addTradeCommand should fail to create a regular trade command when the command already exists', function (done) {
+  it('api.addCommand should fail to create a command if the command already exists for that eventType', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.api.addTradeCommand('normal command', function () { });
-
     try {
 
-      bot.api.addTradeCommand('normal command', function () { });
+      bot.api.addCommand(/^help/i, function () {
 
-    } catch (e) {
+      });
 
-      should.exist(e);
+      bot.api.addCommand(/^help/i, function () {
+
+      });
+
+    } catch (err) {
+
       return done();
 
     }
 
   });
 
-  it('api.addTradeCommand(.., .., true) should create a trade admin command', function (done) {
+  it('api.addCommand should fail to create a command when passed invalid first param', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
-
-    bot.api.addTradeCommand('admin command', function () {}, 1);
-
-    bot.tradeCommands.admin.should.have.property('admin command');
-
-    return done();
-
-  });
-
-  it('api.addTradeCommand(.., .., true) should fail to create a trade admin command when the command already exists', function (done) {
-
-    var Stem = require('../lib'),
-        bot  = new Stem();
-
-    bot.api.addTradeCommand('admin command', function () { }, 1);
 
     try {
 
-      bot.api.addTradeCommand('admin command', function () { }, 1);
+      bot.api.addCommand('/^help/i', function () {
 
-    } catch (e) {
+      });
 
-      should.exist(e);
+    } catch (err) {
+
+      return done();
+
+    }
+
+  });
+
+  it('api.addCommand should fail to create a command when passed invalid second param', function (done) {
+
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    try {
+
+      bot.api.addCommand(/^help/i, 'invalid');
+
+    } catch (err) {
+
+      return done();
+
+    }
+
+  });
+
+  it('api.addCommand should fail to create a command when passed invalid third param', function (done) {
+
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    try {
+
+      bot.api.addCommand(/^help/i, function () {
+
+      }, 'invalid');
+
+    } catch (err) {
+
       return done();
 
     }
