@@ -16,11 +16,11 @@ describe('Storage', function () {
     bot.storage.set('num', 101);
     bot.storage.set('obj', { 'test1': true, 'test2': false });
 
-    bot.storage._data.should.have.property('bool');
-    bot.storage._data.should.have.property('string');
-    bot.storage._data.should.have.property('array');
-    bot.storage._data.should.have.property('num');
-    bot.storage._data.should.have.property('obj');
+    bot.storage.data.should.have.property('bool');
+    bot.storage.data.should.have.property('string');
+    bot.storage.data.should.have.property('array');
+    bot.storage.data.should.have.property('num');
+    bot.storage.data.should.have.property('obj');
 
     return done();
 
@@ -64,7 +64,7 @@ describe('Storage', function () {
     bot.storage.set('num', 101);
     bot.storage.set('obj', { 'test1': true, 'test2': false });
 
-    Object.keys(bot.storage._data).length.should.eql(5);
+    Object.keys(bot.storage.data).length.should.eql(5);
 
     var keysToRemove = ['bool', 'string', 'array', 'num', 'obj'];
 
@@ -74,18 +74,18 @@ describe('Storage', function () {
 
     });
 
-    Object.keys(bot.storage._data).length.should.eql(0);
+    Object.keys(bot.storage.data).length.should.eql(0);
 
     return done();
 
   });
 
-  it('storage.set should emit `save`', function (done) {
+  it('storage.set should emit `change`', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
-    bot.on('save', function (data) {
+    bot.storage.on('change', function (data) {
 
       Object.keys(data).length.should.eql(1);
       return done();
@@ -96,14 +96,14 @@ describe('Storage', function () {
 
   });
 
-  it('storage.remove should emit `save`', function (done) {
+  it('storage.remove should emit `change`', function (done) {
 
     var Stem = require('../lib'),
         bot  = new Stem();
 
     bot.storage.set('string', 'test');
 
-    bot.on('save', function (data) {
+    bot.storage.on('change', function (data) {
 
       Object.keys(data).length.should.eql(0);
       return done();
@@ -111,6 +111,25 @@ describe('Storage', function () {
     });
 
     bot.storage.remove('string');
+
+  });
+
+  it('storage.load should merge given data and emit `loaded`', function (done) {
+
+    var Stem = require('../lib'),
+        bot  = new Stem();
+
+    bot.storage.set('test', false);
+    bot.storage.set('123', 'abc');
+
+    bot.storage.once('loaded', function (data) {
+
+      Object.keys(data).length.should.eql(2);
+      return done();
+
+    });
+
+    bot.storage.load({ test: true });
 
   });
 
