@@ -14,4 +14,7 @@ if (!config) {
 var bot       = new Stem(),
     botConfig = require(configPath);
 
+botConfig.username = process.env.BOT_USERNAME || botConfig.username;
+botConfig.password = process.env.BOT_PASSWORD || botConfig.password;
+
 bot.init(botConfig);
