@@ -1,14 +1,14 @@
 
 /* global describe, it */
 
-var should = require('should');
+var should = require('should'),
+    Stem   = require('../lib');
 
 describe('Storage', function () {
 
   it('storage.set should store the given key and its value', function (done) {
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
+    var bot = new Stem();
 
     bot.storage.set('bool', true);
     bot.storage.set('string', 'test');
@@ -28,8 +28,7 @@ describe('Storage', function () {
 
   it('storage.get should return the given keys value', function (done) {
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
+    var bot = new Stem();
 
     bot.storage.set('bool', true);
     bot.storage.set('string', 'test');
@@ -55,8 +54,7 @@ describe('Storage', function () {
 
   it('storage.remove should remove the given key from storage', function (done) {
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
+    var bot = new Stem();
 
     bot.storage.set('bool', true);
     bot.storage.set('string', 'test');
@@ -82,8 +80,7 @@ describe('Storage', function () {
 
   it('storage.set should emit `change`', function (done) {
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
+    var bot = new Stem();
 
     bot.storage.on('change', function (data) {
 
@@ -98,8 +95,7 @@ describe('Storage', function () {
 
   it('storage.remove should emit `change`', function (done) {
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
+    var bot = new Stem();
 
     bot.storage.set('string', 'test');
 
@@ -116,8 +112,7 @@ describe('Storage', function () {
 
   it('storage.load should merge given data and emit `loaded`', function (done) {
 
-    var Stem = require('../lib'),
-        bot  = new Stem();
+    var bot = new Stem();
 
     bot.storage.set('test', false);
     bot.storage.set('123', 'abc');
