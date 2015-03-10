@@ -1,0 +1,7 @@
+{
+  "name": "Stem",
+  "description": "A simple Steam bot",
+  "scripts": {
+    "postdeploy": "npm install"
+  }
+}
